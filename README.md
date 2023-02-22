@@ -1,6 +1,6 @@
 rotate-circle 效果图：
 
-![rotate-circle](img58ba30f3b06f41cb9694583730eb0702.gif)
+![rotate-circle](imgGIF%202023-2-22%2011-19-07.gif)
 
 toast 效果图：
 
