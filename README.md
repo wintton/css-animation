@@ -4,6 +4,7 @@ rotate-circle 效果图：
 
 toast 效果图：
 
+<<<<<<< HEAD
 ![toast](toast.jpg)
 
 loading-rotate 效果图：
@@ -13,3 +14,6 @@ loading-rotate 效果图：
 loading-break 效果图：
 
 ![toast](loading-break.gif)
+=======
+![toast](toast.jpg)
+>>>>>>> 5e045bee9e0fadb0ddd7482bc2319094dac5a029
