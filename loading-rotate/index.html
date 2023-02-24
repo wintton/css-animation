@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>旋转加载动画</title>
+	<style type="text/css"> 
+		@keyframes rotate-anmi {
+		    0% {
+		       transform: rotate(0deg); 
+		    }
+		    100%{
+		        transform:rotate(360deg);  
+		    }
+		}
+ 
+
+		#loadding span{
+		    width: 15px;
+		    height: 15px;
+		    background: blue;
+		    border-radius: 50%; 
+		    position: absolute;
+		} 
+
+		#loadding span:nth-child(1){
+		   margin-bottom: 40px;
+		   opacity: 0.2;
+		} 
+
+		#loadding span:nth-child(2){
+		   margin-left: 40px;
+		   opacity: 0.4;
+		} 
+
+		#loadding span:nth-child(3){
+		   margin-right: 40px;
+		   opacity: 0.6;
+		} 
+
+		#loadding span:nth-child(4){
+		   margin-top: 40px;
+		   opacity: 0.8;
+		} 
+
+		#loadding{
+			animation: rotate-anmi infinite alternate linear 2s;
+			display: flex;
+			flex-direction: row;
+		    justify-content: center;
+		    align-items: center;
+		}
+
+		#container{
+		    width: 200px;
+		    height: 200px;
+		    background: #FFFFFF;
+		    border-radius: 10px;
+		    display: flex;
+		    flex-direction: row;
+		    justify-content: center;
+		    align-items: center;
+		}
+
+		body{
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    background: #EFEFEF;
+		    width:100vw;
+		    height: 100vh;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"> 
+		<div id="loadding">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div> 
+	</div>
+</body>
+</html>

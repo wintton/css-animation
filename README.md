@@ -1,7 +1,15 @@
 rotate-circle 效果图：
 
-![rotate-circle](imgGIF%202023-2-22%2011-19-07.gif)
+![rotate-circle](rotate-circle.gif)
 
 toast 效果图：
 
-![toast](img1677035812342.jpg)
+![toast](toast.jpg)
+
+loading-rotate 效果图：
+
+![toast](loading-rotate.gif)
+
+loading-break 效果图：
+
+![toast](loading-break.gif)

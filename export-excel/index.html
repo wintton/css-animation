@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>导出表格</title>
+	<style type="text/css"> 
+		 table{
+		 	font-size: 15px; 
+		 }
+		 td{
+		 	padding: 2px;
+		 }
+		 #container{ 
+		    background:#ffffff;
+		    border-radius: 10px; 
+		    font-size: 15px;
+		    padding: 50px 40px; 
+		}
+
+		body{
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    background: #EFEFEF;
+		    width:100vw;
+		    height: 100vh;
+
+		}
+	</style>
+	<script type="text/javascript">
+	 	
+	 	function getExplorer() {
+		  var explorer = window.navigator.userAgent;
+		  //ie 
+		  if (explorer.indexOf("MSIE") >= 0) {
+		    return 'ie';
+		  }
+		  //firefox 
+		  else if (explorer.indexOf("Firefox") >= 0) {
+		    return 'Firefox';
+		  }
+		  //Chrome
+		  else if (explorer.indexOf("Chrome") >= 0) {
+		    return 'Chrome';
+		  }
+		  //Opera
+		  else if (explorer.indexOf("Opera") >= 0) {
+		    return 'Opera';
+		  }
+		  //Safari
+		  else if (explorer.indexOf("Safari") >= 0) {
+		    return 'Safari';
+		  }
+		}
+
+		//IE浏览器导出Excel
+		function HtmlExportToExcelForIE(table, filename) {
+		  try {
+		    var winname = window.open('', '_blank', 'top=10000');
+		    winname.document.open('application/vnd.ms-excel', 'export excel');
+		    winname.document.writeln(table.innerHTML);
+		    winname.document.execCommand('saveas', '', filename + '.xls');
+		    winname.close();
+
+		  } catch (e) {
+		    alert(e.description);
+		  }
+		}
+
+		function HtmlExportToExcel(table,filename) {
+		  var date = new Date();
+		  if(!filename){
+		    filename = new Date().getTime();
+		  } 
+		  if (getExplorer() == 'ie' || getExplorer() == undefined) {
+		    HtmlExportToExcelForIE(table, filename);
+		  }
+		  else {
+		    HtmlExportToExcelForEntire(table, filename)
+		  }
+		}
+
+		//非IE浏览器导出Excel
+		var HtmlExportToExcelForEntire = function (table, name) {
+		  var uri = 'data:application/vnd.ms-excel;base64,',
+		    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+		    base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) },
+		    format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+		  var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+
+		  let blob = new Blob([format(template, ctx)]);  
+		  let dlink = document.createElement("a");
+		  dlink.href = URL.createObjectURL(blob);
+		  dlink.download = name + ".xls";
+		  dlink.click();
+		}
+		
+		function doExport(){
+			HtmlExportToExcel(document.getElementById("table"));
+		}
+	</script>
+</head>
+<body>
+	<div id="container" > 
+	 	<table id="table"> 
+	 		<tr>
+	 			<th>列1</th>
+	 			<th>列2</th>
+	 			<th>列3</th>
+	 			<th>列4</th>
+	 			<th>列5</th>
+	 			<th>列6</th>
+	 			<th>列7</th>
+	 			<th>列8</th>
+	 		</tr>
+	 		<tr>
+	 			<td>内容1</td>
+	 			<td>内容2</td>
+	 			<td>内容3</td>
+	 			<td>内容4</td>
+	 			<td>内容5</td>
+	 			<td>内容6</td>
+	 			<td>内容7</td>
+	 			<td>内容8</td>
+	 		</tr>
+	 		<tr>
+	 			<td>内容1</td>
+	 			<td>内容2</td>
+	 			<td>内容3</td>
+	 			<td>内容4</td>
+	 			<td>内容5</td>
+	 			<td>内容6</td>
+	 			<td>内容7</td>
+	 			<td>内容8</td>
+	 		</tr>
+	 		<tr>
+	 			<td>内容1</td>
+	 			<td>内容2</td>
+	 			<td>内容3</td>
+	 			<td>内容4</td>
+	 			<td>内容5</td>
+	 			<td>内容6</td>
+	 			<td>内容7</td>
+	 			<td>内容8</td>
+	 		</tr>
+	 		<tr>
+	 			<td>内容1</td>
+	 			<td>内容2</td>
+	 			<td>内容3</td>
+	 			<td>内容4</td>
+	 			<td>内容5</td>
+	 			<td>内容6</td>
+	 			<td>内容7</td>
+	 			<td>内容8</td>
+	 		</tr>
+	 		<tr>
+	 			<td>内容1</td>
+	 			<td>内容2</td>
+	 			<td>内容3</td>
+	 			<td>内容4</td>
+	 			<td>内容5</td>
+	 			<td>内容6</td>
+	 			<td>内容7</td>
+	 			<td>内容8</td>
+	 		</tr>
+	 	</table>
+	 	<button onclick="doExport()">导出</button>
+	</div>
+</body>
+</html>
